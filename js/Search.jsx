@@ -4,10 +4,10 @@ import preload from '../data.json';
 
 class Search extends Component {
   state = {
-    searchTerm: ''
+    searchTerm: '',
   };
 
-  handleSearchtermChange = event => {
+  handleSearchtermChange = (event) => {
     this.setState({ searchTerm: event.target.value });
   };
   render() {
@@ -24,10 +24,8 @@ class Search extends Component {
         </header>
         <div>
           {preload.shows
-            .filter(
-              show =>
-                `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
-            )
+            .filter(show =>
+                `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
             .map(show => <ShowCard {...show} key={show.trailer} />)}
         </div>
       </div>
